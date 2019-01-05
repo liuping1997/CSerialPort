@@ -8,7 +8,7 @@
 
 #ifdef I_OS_WIN
 typedef __int64 int64;           /* 64 bit signed */
-#define DLL_EXPORT __declspec(dllexport)
+#define DLL_EXPORT 
 #elif defined I_OS_UNIX
 typedef long long int64;           /* 64 bit signed */
 #define DLL_EXPORT     __attribute__((visibility("default")))
