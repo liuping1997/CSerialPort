@@ -262,7 +262,7 @@ unsigned int __stdcall CSerialPortWinBase::commThreadMonitor(LPVOID pParam)
 				if (eventMask & EV_RXCHAR)
 				{
 
-					std::cout << "EV_RXCHAR" << std::endl;
+					//std::cout << "EV_RXCHAR" << std::endl;
 
 					// solve 线程中循环的低效率问题
 					ClearCommError(m_mainHandle, &dwError, &comstat);
@@ -276,12 +276,12 @@ unsigned int __stdcall CSerialPortWinBase::commThreadMonitor(LPVOID pParam)
 				{
 					DWORD numBytes;
 					GetOverlappedResult(m_mainHandle, &m_overlapMonitor, &numBytes, true);
-					std::cout << "EV_TXEMPTY" << std::endl;
+					//std::cout << "EV_TXEMPTY" << std::endl;
 				}
 
 				if (eventMask & EV_DSR)
 				{
-					std::cout << "EV_DSR" << std::endl;
+					//std::cout << "EV_DSR" << std::endl;
 				}
 			}
 		}
