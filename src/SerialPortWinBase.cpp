@@ -34,6 +34,7 @@ void CSerialPortWinBase::construct()
 
 	m_operateMode = itas109::AsynchronousOperate;
 
+	lastError = itas109::NoError;
 	overlapMonitor.Internal = 0;
 	overlapMonitor.InternalHigh = 0;
 	overlapMonitor.Offset = 0;
@@ -414,6 +415,8 @@ int CSerialPortWinBase::writeData(const char * data, int maxSize)
 			else
 			{
 				lastError = itas109::SerialPortError::WriteError;
+				std::string str = "SerialPort Write GetLastError:" + std::to_string(GetLastError());
+				OutputDebugStringA(str.c_str());
 				dRet = (DWORD)-1;
 			}
 		}
@@ -425,7 +428,7 @@ int CSerialPortWinBase::writeData(const char * data, int maxSize)
 			}
 			else
 			{
-				lastError = itas109::SerialPortError::WriteError;;
+				lastError = itas109::SerialPortError::WriteError;
 				dRet = (DWORD)-1;
 			}
 		}
@@ -435,10 +438,6 @@ int CSerialPortWinBase::writeData(const char * data, int maxSize)
 		lastError = itas109::SerialPortError::NotOpenError;
 		dRet = (DWORD)-1;
 	}
-
-
-
-
 	unlock();
 
 	return dRet;

@@ -28,10 +28,11 @@ namespace itas109
 
 		int readData(char *data, int maxSize);
 		int readAllData(char *data);
-		int	readLineData(char *data, int maxSize);
+		int readLineData(char *data, int maxSize);
 		int writeData(const char * data, int maxSize);
 
 		void setDebugModel(bool isDebug);
+		void setOperateMode(bool async);
 
 		void setReadTimeInterval(int msecs);
 

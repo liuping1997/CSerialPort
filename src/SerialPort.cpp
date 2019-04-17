@@ -89,6 +89,11 @@ void itas109::CSerialPort::setDebugModel(bool isDebug)
 	p_serialPortBase->setDebugModel(isDebug);
 }
 
+void itas109::CSerialPort::setOperateMode(bool async)
+{
+	p_serialPortBase->setOperateMode(async? itas109::AsynchronousOperate:itas109::SynchronousOperate);
+}
+
 void itas109::CSerialPort::setReadTimeInterval(int msecs)
 {
 	p_serialPortBase->setReadTimeInterval(msecs);
