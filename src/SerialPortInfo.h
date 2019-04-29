@@ -4,6 +4,7 @@
 #include "SerialPort_global.h"
 
 #include <list>
+#include <string>
 
 //class CSerialPortInfoBase;
 

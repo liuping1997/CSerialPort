@@ -2,6 +2,7 @@
 #define __CSERIALPORTINFOBASE_H__
 
 #include <list>
+#include <string>
 
 class CSerialPortInfoBase
 {
